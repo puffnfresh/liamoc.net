@@ -110,6 +110,7 @@ Then, we can define a simple type for $\mathsf{SM}$ programs, essentially a list
 consecutive instructions must match. This makes it impossible to construct a $\mathsf{SM}$ program with an underflow error:
 
 \begin{code}
+infixr 5 _∷_
 data SM (w s : ℕ) : ℕ → ℕ → Set where
   halt : SM w s w s
   _∷_  : ∀{w′ s′ w″ s″} → Inst w s w′ s′ → SM w′ s′ w″ s″ → SM w s w″ s″
